@@ -43,3 +43,49 @@ func appendAndDelete(s string, t string, k int32) string {
 	}
 	return result
 }
+
+func libraryFine(d1 int32, m1 int32, y1 int32, d2 int32, m2 int32, y2 int32) int32 {
+	// Write your code here
+	var cost int32 = 0
+	var dc int32 = (d1 - d2) * 15
+	var mc int32 = (m1 - m2) * 500
+	var yc int32 = (y1 - y2) * 10000
+
+	if y1 > y2 {
+		// if m1 > m2{
+		//     if d1 > d2 {
+		//         cost = yc + mc + dc
+		//     }else if d1 <= d2{
+		//         cost = yc + mc
+		//     }
+		// }else if m1 == m2 {
+		//     if d1 > d2 {
+		//         cost = yc + dc
+		//     }else if d1 <= d2{
+		//         cost = yc
+		//     }
+		// }else if m1 < m2{
+		cost = yc
+		// }
+	} else if y1 == y2 {
+		if m1 > m2 {
+			// if d1 > d2 {
+			// cost = mc + dc
+			// }else if d1 <= d2{
+			cost = mc
+			// }
+		} else if m1 == m2 {
+			if d1 > d2 {
+				cost = dc
+			} else if d1 <= d2 {
+				cost = 0
+			}
+		} else if m1 < m2 {
+			cost = 0
+		}
+	} else if y1 < y2 {
+		cost = 0
+	}
+
+	return cost
+}
