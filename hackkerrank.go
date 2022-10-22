@@ -129,3 +129,25 @@ func repeatedString(s string, n int64) int64 {
 		return 0
 	}
 }
+
+func jumpingOnClouds(c []int32) int32 {
+	// Write your code here
+	steps := int32(0)
+	for i := 0; i != len(c)-1; {
+
+		i += 2
+
+		if i >= len(c) {
+			steps += 1
+			break
+		} else if c[i] == 1 {
+			i -= 1
+		}
+
+		steps += 1
+		// fmt.Println("i",i)
+		// fmt.Println("steps",steps)
+	}
+
+	return steps
+}
