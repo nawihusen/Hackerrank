@@ -89,3 +89,43 @@ func libraryFine(d1 int32, m1 int32, y1 int32, d2 int32, m2 int32, y2 int32) int
 
 	return cost
 }
+
+func repeatedString(s string, n int64) int64 {
+	// Write your code here
+	p := int64(len(s))
+	count := int64(n / p)
+	sisa := int64(n % p)
+	result := int64(0)
+	do := false
+	for _, v := range s {
+		if string(v) == "a" {
+			do = true
+			break
+		}
+	}
+
+	if do {
+		if len(s) == 1 {
+			return n
+		}
+		sum := 0 // jumlah a pada s
+		for _, v := range s {
+			if string(v) == "a" {
+				sum += 1
+			}
+		}
+
+		result = count * int64(sum)
+		if sisa > 0 {
+			slisisa := s[:sisa]
+			for _, v := range slisisa {
+				if string(v) == "a" {
+					result += 1
+				}
+			}
+		}
+		return result
+	} else {
+		return 0
+	}
+}
