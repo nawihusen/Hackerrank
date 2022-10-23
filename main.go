@@ -1,17 +1,12 @@
 package main
 
 import (
-	"fmt"
 	"sort"
 	"strings"
 )
 
 func main() {
-	tes := "sdfghjmk,lkjhgf"
-	t := strings.Split(tes, "")
-	sort.Strings(t)
-	fmt.Println(t)
-
+	// fmt.Println(60494 + 17284)
 }
 
 func SortString(w string) string {
