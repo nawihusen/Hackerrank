@@ -7,9 +7,10 @@ import (
 )
 
 func main() {
-	tes := 10
-
-	fmt.Println(tes / 3)
+	tes := "sdfghjmk,lkjhgf"
+	t := strings.Split(tes, "")
+	sort.Strings(t)
+	fmt.Println(t)
 
 }
 
