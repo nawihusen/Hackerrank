@@ -183,3 +183,19 @@ func equalizeArray(arr []int32) int32 {
 
 	return total
 }
+
+func taumBday(b int32, w int32, bc int32, wc int32, z int32) int64 {
+	// Write your code here
+	costarr := []int64{}
+	tob := (int64(b+w) * int64(bc)) + (int64(w) * int64(z))
+	tow := (int64(b+w) * int64(wc)) + (int64(b) * int64(z))
+	o := (int64(b) * int64(bc)) + (int64(w) * int64(wc))
+
+	costarr = append(costarr, tob, tow, o)
+
+	sort.SliceStable(costarr, func(i, j int) bool {
+		return costarr[i] < costarr[j]
+	})
+
+	return costarr[0]
+}
