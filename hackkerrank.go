@@ -1,8 +1,10 @@
 package main
 
 import (
+	"fmt"
 	"math"
 	"sort"
+	"strconv"
 )
 
 func appendAndDelete(s string, t string, k int32) string {
@@ -198,4 +200,29 @@ func taumBday(b int32, w int32, bc int32, wc int32, z int32) int64 {
 	})
 
 	return costarr[0]
+}
+
+func kaprekarNumbers(p int32, q int32) {
+	// Write your code here
+	result := []int32{}
+	for i := p; i <= q; i++ {
+		square := int64(i) * int64(i)
+		temp := fmt.Sprintf("%d", square)
+
+		c1, _ := strconv.Atoi(temp[:len(temp)/2])
+		c2, _ := strconv.Atoi(temp[len(temp)/2:])
+		if (c1 + c2) == int(i) {
+			result = append(result, i)
+		}
+	}
+	if len(result) == 0 {
+		fmt.Print("INVALID RANGE")
+	} else {
+		temp := ""
+		for _, v := range result {
+			temp += fmt.Sprintf("%d ", v)
+		}
+
+		fmt.Print(temp)
+	}
 }
