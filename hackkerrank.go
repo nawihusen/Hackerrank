@@ -1,6 +1,9 @@
 package main
 
-import "math"
+import (
+	"math"
+	"sort"
+)
 
 func appendAndDelete(s string, t string, k int32) string {
 	// Write your code here
@@ -150,4 +153,33 @@ func jumpingOnClouds(c []int32) int32 {
 	}
 
 	return steps
+}
+
+func equalizeArray(arr []int32) int32 {
+	// Write your code here
+	sumall := map[int32]int32{}
+	keys := []int32{}
+
+	for _, v := range arr {
+		_, isExist := sumall[v]
+		if !isExist {
+			keys = append(keys, v)
+		}
+		sumall[v] += 1
+	}
+
+	sort.SliceStable(keys, func(i, j int) bool {
+		return sumall[keys[i]] > sumall[keys[j]]
+	})
+
+	total := int32(0)
+	for k, v1 := range keys {
+		if k == 0 {
+			continue
+		}
+
+		total += sumall[v1]
+	}
+
+	return total
 }
