@@ -252,3 +252,23 @@ out:
 	return count
 
 }
+
+func minimumDistances(a []int32) int32 {
+	// Write your code here
+	pair := []int32{}
+	for i := 0; i < len(a)-1; i++ {
+		for j := i + 1; j < len(a); j++ {
+			if a[i] == a[j] {
+				pair = append(pair, int32(j-i))
+			}
+		}
+	}
+	sort.SliceStable(pair, func(i, j int) bool {
+		return pair[i] < pair[j]
+	})
+
+	if len(pair) == 0 {
+		return -1
+	}
+	return pair[0]
+}
