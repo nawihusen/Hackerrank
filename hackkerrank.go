@@ -226,3 +226,29 @@ func kaprekarNumbers(p int32, q int32) {
 		fmt.Print(temp)
 	}
 }
+
+func beautifulTriplets(d int32, arr []int32) int32 {
+	// Write your code here
+	count := int32(0)
+out:
+	for i := 0; i < len(arr)-1; i++ {
+		temp := []int32{}
+		ctemp := 0
+		temp = append(temp, arr[i])
+		// in:
+		for j := i + 1; j < len(arr); j++ {
+			if arr[j]-temp[ctemp] == d {
+				temp = append(temp, arr[j])
+				ctemp += 1
+				if len(temp) == 3 {
+					count += 1
+					continue out
+				}
+
+			}
+		}
+	}
+
+	return count
+
+}
