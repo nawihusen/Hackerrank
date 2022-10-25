@@ -273,4 +273,23 @@ func minimumDistances(a []int32) int32 {
 	return pair[0]
 }
 
-//
+func howManyGames(p int32, d int32, m int32, s int32) int32 {
+	// Return the number of games you can buy
+	count := int32(0)
+
+	for {
+		if s < p {
+			break
+		}
+		fmt.Println(p)
+		fmt.Println(s)
+
+		s -= p
+		p -= d
+		if p < m {
+			p = m
+		}
+		count += 1
+	}
+	return count
+}
