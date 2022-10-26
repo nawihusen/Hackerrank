@@ -293,3 +293,24 @@ func howManyGames(p int32, d int32, m int32, s int32) int32 {
 	}
 	return count
 }
+
+func chocolateFeast(n int32, c int32, m int32) int32 {
+	// Write your code here
+	total := int32(0)
+	wrappers := int32(0)
+	has := n / c
+	total = has
+	wrappers = has
+	for {
+		if wrappers < m {
+			break
+		} else if wrappers >= m {
+			temp := wrappers / m
+			temp2 := wrappers % m
+			total += temp
+			wrappers = temp + temp2
+		}
+	}
+
+	return total
+}
