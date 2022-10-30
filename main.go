@@ -7,10 +7,8 @@ import (
 )
 
 func main() {
-	aku := "asvnfkjjvdiljmdklc"
-	catch := SortString(aku)
-	fmt.Println(catch)
-	fmt.Println(aku)
+	test := [][]int{{1, 1}, {2, 2}}
+	fmt.Println(len(test))
 }
 
 func SortString(w string) string {
