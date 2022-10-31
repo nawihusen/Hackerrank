@@ -315,4 +315,29 @@ func chocolateFeast(n int32, c int32, m int32) int32 {
 	return total
 }
 
-////
+func workbook(n int32, k int32, arr []int32) int32 {
+	// Write your code here
+	var result int32
+	page := map[int32][]int32{}
+	keys := int32(1)
+
+	for _, v := range arr {
+		for i := int32(1); i <= v; i++ {
+			page[keys] = append(page[keys], i)
+			if keys == i {
+				result += 1
+			}
+			if len(page[keys]) == int(k) {
+				keys += 1
+			}
+		}
+
+		if v%k != 0 {
+			keys += 1
+		}
+	}
+
+	// fmt.Println(page)
+
+	return result
+}
